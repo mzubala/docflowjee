@@ -3,6 +3,7 @@ package pl.com.bottega.docflowjee.catalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Try;
 import org.jboss.logging.Logger;
+import pl.com.bottega.docflowjee.docflow.events.DocumentCreatedEvent;
 import pl.com.bottega.eventsourcing.Event;
 
 import javax.ejb.ActivationConfigProperty;
@@ -25,6 +26,9 @@ public class DocflowListener implements MessageListener {
     @Inject
     private ObjectMapper objectMapper;
 
+    @Inject
+    private CatalogService catalogService;
+
     public void onMessage(Message rcvMessage) {
         TextMessage msg = null;
         try {
@@ -38,11 +42,18 @@ public class DocflowListener implements MessageListener {
                 Event event = (Event) Try.of(() -> objectMapper.readValue(text, eventClass))
                     .getOrElseThrow((e) -> new RuntimeException("Failed to parse event json: " + text));
                 LOGGER.info("Received Event: " + event.toString());
+                process(event);
             } else {
                 LOGGER.warn("Message of wrong type: " + rcvMessage.getClass().getName());
             }
         } catch (JMSException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void process(Event event) {
+        if(event instanceof DocumentCreatedEvent) {
+            catalogService.process((DocumentCreatedEvent) event);
         }
     }
 

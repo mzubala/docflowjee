@@ -1,15 +1,22 @@
 package pl.com.bottega.docflowjee.catalog.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 public class BasicDocumentInfo {
 
+    @Id
     private UUID documentId;
 
     private String title;
 
     private String contentBrief;
 
+    @Enumerated(EnumType.STRING)
     private DocumentStatus status;
 
     public UUID getDocumentId() {

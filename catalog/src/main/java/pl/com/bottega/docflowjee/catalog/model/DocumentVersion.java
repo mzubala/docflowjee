@@ -1,9 +1,20 @@
 package pl.com.bottega.docflowjee.catalog.model;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class DocumentVersion {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private Integer number;
 
@@ -11,8 +22,10 @@ public class DocumentVersion {
 
     private String content;
 
+    @Enumerated(EnumType.STRING)
     private DocumentStatus status;
 
+    @ElementCollection
     private Set<Long> publishedFor = new HashSet<>();
 
     public Integer getNumber() {

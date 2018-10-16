@@ -36,6 +36,7 @@ public class CatalogService {
         version.setNumber(1);
         version.setStatus(DocumentStatus.DRAFT);
         details.setCurrentVersion(version);
+        details.setDocumentId(event.getAggregateId());
 
         basicDocumentInfoDao.save(basicDocumentInfo);
         documentDetailsDao.save(details);

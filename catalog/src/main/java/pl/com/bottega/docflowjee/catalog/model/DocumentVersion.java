@@ -14,6 +14,7 @@ public class DocumentVersion {
     private DocumentStatus status;
 
     private Set<Long> publishedFor = new HashSet<>();
+    private String rejectionReason;
 
     public Integer getNumber() {
         return number;
@@ -45,5 +46,21 @@ public class DocumentVersion {
 
     public void setStatus(DocumentStatus status) {
         this.status = status;
+    }
+
+    public Set<Long> getPublishedFor() {
+        return publishedFor;
+    }
+
+    public void setPublishedFor(Set<Long> publishedFor) {
+        this.publishedFor = publishedFor;
+    }
+
+    public void setRejectionReason(String rejectionReason) {
+        this.rejectionReason = rejectionReason;
+    }
+
+    public String getRejectionReason() {
+        return rejectionReason;
     }
 }

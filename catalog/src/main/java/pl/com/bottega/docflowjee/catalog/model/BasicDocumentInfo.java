@@ -10,7 +10,17 @@ public class BasicDocumentInfo {
 
     private String contentBrief;
 
+    private Long aggregateVersion;
+
     private DocumentStatus status;
+
+    public Long getAggregateVersion() {
+        return aggregateVersion;
+    }
+
+    public void setAggregateVersion(Long aggregateVersion) {
+        this.aggregateVersion = aggregateVersion;
+    }
 
     public UUID getDocumentId() {
         return documentId;

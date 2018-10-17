@@ -1,6 +1,7 @@
-package pl.com.bottega.docflowjee.catalog;
+package pl.com.bottega.docflowjee.catalog.service;
 
 import pl.com.bottega.docflowjee.catalog.dao.BasicDocumentInfoDao;
+import pl.com.bottega.docflowjee.catalog.dao.CatalogQuery;
 import pl.com.bottega.docflowjee.catalog.dao.DocumentDetailsDao;
 import pl.com.bottega.docflowjee.catalog.model.BasicDocumentInfo;
 import pl.com.bottega.docflowjee.catalog.model.DocumentDetails;
@@ -17,6 +18,7 @@ import pl.com.bottega.docflowjee.docflow.events.NewDocumentVersionCreatedEvent;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.util.UUID;
 
 public class CatalogService {
 
@@ -153,6 +155,14 @@ public class CatalogService {
 
         basicDocumentInfo.setAggregateVersion(event.getAggregateVersion());
         documentDetails.setAggregateVersion(event.getAggregateVersion());
+    }
+
+    public DocumentDetails getDetails(UUID documentId) {
+        return null;
+    }
+
+    public Page<BasicDocumentInfo> search(CatalogQuery query) {
+        return null;
     }
 
 }

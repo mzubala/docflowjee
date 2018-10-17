@@ -1,6 +1,7 @@
 package pl.com.bottega.docflowjee.catalog.dao;
 
 import pl.com.bottega.docflowjee.catalog.model.BasicDocumentInfo;
+import pl.com.bottega.docflowjee.catalog.service.Page;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -17,5 +18,9 @@ public class BasicDocumentInfoDao {
 
     public BasicDocumentInfo find(UUID aggregateId) {
         return entityManager.find(BasicDocumentInfo.class, aggregateId);
+    }
+
+    public Page<BasicDocumentInfo> find(CatalogQuery query) {
+        return null;
     }
 }

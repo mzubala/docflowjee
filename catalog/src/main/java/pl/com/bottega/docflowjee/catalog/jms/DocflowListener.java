@@ -1,8 +1,9 @@
-package pl.com.bottega.docflowjee.catalog;
+package pl.com.bottega.docflowjee.catalog.jms;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Try;
 import org.jboss.logging.Logger;
+import pl.com.bottega.docflowjee.catalog.service.CatalogService;
 import pl.com.bottega.docflowjee.docflow.events.DocumentArchivedEvent;
 import pl.com.bottega.docflowjee.docflow.events.DocumentCreatedEvent;
 import pl.com.bottega.docflowjee.docflow.events.DocumentPassedToVerification;

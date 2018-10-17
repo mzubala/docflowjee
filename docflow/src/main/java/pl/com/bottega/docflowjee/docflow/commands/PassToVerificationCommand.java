@@ -1,9 +1,11 @@
 package pl.com.bottega.docflowjee.docflow.commands;
 
+import pl.com.bottega.eventsourcing.Command;
+
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-public class PassToVerificationCommand {
+public class PassToVerificationCommand implements Command {
     @NotNull
     public UUID documentId;
     @NotNull

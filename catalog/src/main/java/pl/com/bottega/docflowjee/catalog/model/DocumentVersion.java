@@ -16,7 +16,7 @@ public class DocumentVersion {
     @GeneratedValue
     private Long id;
 
-    private Integer number;
+    private Integer documentVersionNumber;
 
     private String title;
 
@@ -29,12 +29,12 @@ public class DocumentVersion {
     private Set<Long> publishedFor = new HashSet<>();
     private String rejectionReason;
 
-    public Integer getNumber() {
-        return number;
+    public Integer getDocumentVersionNumber() {
+        return documentVersionNumber;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setDocumentVersionNumber(Integer documentVersionNumber) {
+        this.documentVersionNumber = documentVersionNumber;
     }
 
     public String getTitle() {

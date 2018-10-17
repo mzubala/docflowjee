@@ -1,9 +1,11 @@
 package pl.com.bottega.docflowjee.docflow.commands;
 
+import pl.com.bottega.eventsourcing.Command;
+
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-public class CreateNewDocumentVersionCommand {
+public class CreateNewDocumentVersionCommand implements Command {
     @NotNull
     public UUID documentId;
     @NotNull

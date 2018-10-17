@@ -23,7 +23,7 @@ public class DocumentDetails {
     private DocumentVersion currentVersion;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @OrderColumn(name = "version")
+    @OrderColumn(name = "previousVersionsOrder")
     @JoinColumn(name = "documentDetailsId")
     private List<DocumentVersion> previousVersions = new LinkedList<>();
 

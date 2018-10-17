@@ -34,7 +34,7 @@ public class CatalogService {
 
         DocumentDetails details = new DocumentDetails();
         DocumentVersion version = new DocumentVersion();
-        version.setNumber(1);
+        version.setDocumentVersionNumber(1);
         version.setStatus(DocumentStatus.DRAFT);
         details.setCurrentVersion(version);
         details.setDocumentId(event.getAggregateId());
@@ -64,7 +64,7 @@ public class CatalogService {
 
     private String contentBrief(String content) {
         if(content != null) {
-            return content.substring(0, 250);
+            return content.length() < 250 ? content : content.substring(0, 250);
         } else {
             return null;
         }
@@ -144,7 +144,7 @@ public class CatalogService {
 
         DocumentDetails documentDetails = documentDetailsDao.find(event.getAggregateId());
         DocumentVersion currentVersion = new DocumentVersion();
-        currentVersion.setNumber(event.getVersion());
+        currentVersion.setDocumentVersionNumber(event.getVersion());
         currentVersion.setTitle(documentDetails.getCurrentVersion().getTitle());
         currentVersion.setContent(documentDetails.getCurrentVersion().getContent());
         currentVersion.setStatus(DocumentStatus.DRAFT);

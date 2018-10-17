@@ -27,6 +27,8 @@ public class DocumentDetails {
     @JoinColumn(name = "documentDetailsId")
     private List<DocumentVersion> previousVersions = new LinkedList<>();
 
+    private Long aggregateVersion;
+
     public UUID getDocumentId() {
         return documentId;
     }
@@ -49,5 +51,13 @@ public class DocumentDetails {
 
     public void setPreviousVersions(List<DocumentVersion> previousVersions) {
         this.previousVersions = previousVersions;
+    }
+
+    public Long getAggregateVersion() {
+        return aggregateVersion;
+    }
+
+    public void setAggregateVersion(Long aggregateVersion) {
+        this.aggregateVersion = aggregateVersion;
     }
 }

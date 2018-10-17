@@ -4,6 +4,7 @@ import pl.com.bottega.docflowjee.catalog.model.BasicDocumentInfo;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.util.UUID;
 
 public class BasicDocumentInfoDao {
 
@@ -12,5 +13,9 @@ public class BasicDocumentInfoDao {
 
     public void save(BasicDocumentInfo basicDocumentInfo) {
         entityManager.merge(basicDocumentInfo);
+    }
+
+    public BasicDocumentInfo find(UUID aggregateId) {
+        return entityManager.find(BasicDocumentInfo.class, aggregateId);
     }
 }

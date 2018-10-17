@@ -16,6 +16,16 @@ public class BasicDocumentInfo {
 
     private String contentBrief;
 
+    public Long getAggregateVersion() {
+        return aggregateVersion;
+    }
+
+    public void setAggregateVersion(Long aggregateVersion) {
+        this.aggregateVersion = aggregateVersion;
+    }
+
+    private Long aggregateVersion;
+
     @Enumerated(EnumType.STRING)
     private DocumentStatus status;
 

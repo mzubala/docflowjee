@@ -3,7 +3,13 @@ package pl.com.bottega.docflowjee.catalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Try;
 import org.jboss.logging.Logger;
+import pl.com.bottega.docflowjee.docflow.events.DocumentArchivedEvent;
 import pl.com.bottega.docflowjee.docflow.events.DocumentCreatedEvent;
+import pl.com.bottega.docflowjee.docflow.events.DocumentPassedToVerification;
+import pl.com.bottega.docflowjee.docflow.events.DocumentPublishedEvent;
+import pl.com.bottega.docflowjee.docflow.events.DocumentUpdatedEvent;
+import pl.com.bottega.docflowjee.docflow.events.DocumentVerifiedEvent;
+import pl.com.bottega.docflowjee.docflow.events.NewDocumentVersionCreatedEvent;
 import pl.com.bottega.eventsourcing.Event;
 
 import javax.ejb.ActivationConfigProperty;
@@ -54,6 +60,18 @@ public class DocflowListener implements MessageListener {
     private void process(Event event) {
         if(event instanceof DocumentCreatedEvent) {
             catalogService.process((DocumentCreatedEvent) event);
+        } else if(event instanceof DocumentUpdatedEvent) {
+            catalogService.process((DocumentUpdatedEvent) event);
+        } else if(event instanceof DocumentPassedToVerification) {
+            catalogService.process((DocumentPassedToVerification) event);
+        } else if(event instanceof DocumentVerifiedEvent) {
+            catalogService.process((DocumentVerifiedEvent) event);
+        } else if(event instanceof DocumentPublishedEvent) {
+            catalogService.process((DocumentPublishedEvent) event);
+        } else if(event instanceof DocumentArchivedEvent) {
+            catalogService.process((DocumentArchivedEvent) event);
+        } else if(event instanceof NewDocumentVersionCreatedEvent) {
+            catalogService.process((NewDocumentVersionCreatedEvent) event);
         }
     }
 

@@ -22,6 +22,7 @@
         <module>eventsourcing</module>
         <module>catalog</module>
         <module>docflow-events</module>
+        <module>e2e-tests</module>
     </modules>
 
     <build>

@@ -1,7 +1,7 @@
 package pl.com.bottega.docflowjee.catalog.rest;
 
 import pl.com.bottega.docflowjee.catalog.model.DocumentStatus;
-import pl.com.bottega.docflowjee.catalog.service.SortOrder;
+import pl.com.bottega.docflowjee.catalog.dao.SortOrder;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;

@@ -1,7 +1,6 @@
 package pl.com.bottega.docflowjee.catalog.dao;
 
 import pl.com.bottega.docflowjee.catalog.model.DocumentStatus;
-import pl.com.bottega.docflowjee.catalog.service.SortOrder;
 
 public class CatalogQuery {
 

@@ -1,4 +1,4 @@
-package pl.com.bottega.docflowjee.catalog.service;
+package pl.com.bottega.docflowjee.catalog.dao;
 
 import java.util.List;
 

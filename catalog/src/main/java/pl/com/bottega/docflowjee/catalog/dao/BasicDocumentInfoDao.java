@@ -1,7 +1,6 @@
 package pl.com.bottega.docflowjee.catalog.dao;
 
 import pl.com.bottega.docflowjee.catalog.model.BasicDocumentInfo;
-import pl.com.bottega.docflowjee.catalog.service.Page;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

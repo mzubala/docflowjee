@@ -3,6 +3,7 @@ package pl.com.bottega.docflowjee.catalog.service;
 import pl.com.bottega.docflowjee.catalog.dao.BasicDocumentInfoDao;
 import pl.com.bottega.docflowjee.catalog.dao.CatalogQuery;
 import pl.com.bottega.docflowjee.catalog.dao.DocumentDetailsDao;
+import pl.com.bottega.docflowjee.catalog.dao.Page;
 import pl.com.bottega.docflowjee.catalog.model.BasicDocumentInfo;
 import pl.com.bottega.docflowjee.catalog.model.DocumentDetails;
 import pl.com.bottega.docflowjee.catalog.model.DocumentStatus;

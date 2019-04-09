@@ -33,7 +33,7 @@ public class DocumentService {
             document.status != DocumentStatus.WAITING_VERIFICATION &&
             document.status != DocumentStatus.VERIFIED
         ) {
-            throw new IlleDocumentOperationException("document can't be updated in status " + document.status);
+            throw new IllegalDocumentOperationException("document can't be updated in status " + document.status);
         }
         document.status = DocumentStatus.DRAFT;
         document.title = command.title;

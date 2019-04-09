@@ -2,6 +2,7 @@ package pl.com.bottega.docflowjee.docflow.application;
 
 import pl.com.bottega.docflowjee.docflow.application.commands.DocumentCommand;
 import pl.com.bottega.docflowjee.docflow.application.commands.UpdateDocumentCommand;
+import pl.com.bottega.docflowjee.docflow.application.validation.ValidateCommand;
 import pl.com.bottega.docflowjee.docflow.model.Document;
 import pl.com.bottega.docflowjee.docflow.model.DocumentDao;
 import pl.com.bottega.docflowjee.docflow.model.DocumentStatus;
@@ -15,6 +16,7 @@ public class DocumentService {
     private DocumentDao documentDao;
 
     @Transactional
+    @ValidateCommand
     public void create(DocumentCommand command) {
         if (documentDao.isNumberOccupied(command.number)) {
             throw new DocumentNumberOccupied(command.number);
@@ -27,6 +29,7 @@ public class DocumentService {
     }
 
     @Transactional
+    @ValidateCommand
     public void update(UpdateDocumentCommand command) {
         Document document = documentDao.find(command.number);
         if (document.status != DocumentStatus.DRAFT &&

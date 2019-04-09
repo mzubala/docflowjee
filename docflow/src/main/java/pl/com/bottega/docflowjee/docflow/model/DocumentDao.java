@@ -24,7 +24,7 @@ public class DocumentDao {
 
     public boolean isNumberOccupied(String number) {
         return ((Long) entityManager.createNamedQuery("Document.countByNumber")
-            .setParameter("number", number).getSingleResult()) > 1;
+            .setParameter("number", number).getSingleResult()) > 0;
     }
 
 }

@@ -1,0 +1,53 @@
+1. CREATE
+    POST /documents
+        {
+            "number": "999-9988-9999"
+        }
+    odp 409 gdy numer zajęty
+2. UPDATE
+    PUT /documents
+        {
+            "number": "999-9988-9999",
+            "title": "xxxx",
+            "content": "yyyy"
+        }
+
+3. PUT /documents/verification
+        {
+            "number": "999-9988-9999"
+        }
+4. PUT /documents/acceptance
+    {
+        "number": "999-9988-9999"
+    }
+5. PUT /documents/rejection
+    {
+        "number": "999-9988-9999",
+        "reason": "xxxx"
+    }
+6. PUT /documents/publication
+    {
+        "number": "999-9988-9999",
+        "deparmentIds": ["1", "2", "3"]
+    }
+7. PUT /documents/archivisation
+       {
+           "number": "999-9988-9999"
+       }
+8. PUT /documents/new-version
+        {
+            "number": "999-9988-9999"
+        }
+
+
+
+
+Ogólne założenia do wszystkich requestów:
+400 - błędny request i wtedy wysyłamy dodatkowe informacje
+{
+    "errors": {
+        "number": ["is required"],
+        "status": ["document is already published"]
+    }
+}
+404 - gdy dokument nie istnieje

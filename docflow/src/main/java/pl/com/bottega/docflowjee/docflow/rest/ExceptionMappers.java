@@ -4,6 +4,7 @@ import pl.com.bottega.docflowjee.docflow.application.DocumentNumberOccupied;
 import pl.com.bottega.docflowjee.docflow.application.IllegalDocumentOperationException;
 import pl.com.bottega.docflowjee.docflow.model.DocumentNotFoundException;
 
+import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -33,6 +34,21 @@ public class ExceptionMappers {
         @Override
         public Response toResponse(IllegalDocumentOperationException exception) {
             RequestErrors requestErrors = new RequestErrors().addError("status", exception.getMessage());
+            return Response.status(Response.Status.BAD_REQUEST).entity(requestErrors).build();
+        }
+    }
+
+    @Provider
+    public static class ConstraintViolationMapper implements ExceptionMapper<ConstraintViolationException> {
+
+        @Override
+        public Response toResponse(ConstraintViolationException exception) {
+            RequestErrors requestErrors = new RequestErrors();
+            exception.getConstraintViolations().forEach(constraintViolation ->
+                requestErrors.addError(
+                    constraintViolation.getPropertyPath().toString(), constraintViolation.getMessage()
+                )
+            );
             return Response.status(Response.Status.BAD_REQUEST).entity(requestErrors).build();
         }
     }

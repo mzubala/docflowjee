@@ -87,4 +87,8 @@ public class Document {
     public void archive(DocumentCommand cmd) {
         status.checkOperationPermitted(ARCHIVE);
     }
+
+    public DocumentStatus status() {
+        return status;
+    }
 }

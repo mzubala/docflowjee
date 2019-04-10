@@ -1,4 +1,4 @@
-package pl.com.bottega.docflowjee.docflow.application.commands;
+package pl.com.bottega.docflowjee.docflow.model.commands;
 
 import javax.validation.constraints.NotNull;
 

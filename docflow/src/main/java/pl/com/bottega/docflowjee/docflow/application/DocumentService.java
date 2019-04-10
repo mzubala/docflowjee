@@ -1,11 +1,10 @@
 package pl.com.bottega.docflowjee.docflow.application;
 
-import pl.com.bottega.docflowjee.docflow.application.commands.DocumentCommand;
-import pl.com.bottega.docflowjee.docflow.application.commands.UpdateDocumentCommand;
+import pl.com.bottega.docflowjee.docflow.model.commands.DocumentCommand;
+import pl.com.bottega.docflowjee.docflow.model.commands.UpdateDocumentCommand;
 import pl.com.bottega.docflowjee.docflow.application.validation.ValidateCommand;
 import pl.com.bottega.docflowjee.docflow.model.Document;
 import pl.com.bottega.docflowjee.docflow.model.DocumentDao;
-import pl.com.bottega.docflowjee.docflow.model.DocumentStatus;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -21,10 +20,7 @@ public class DocumentService {
         if (documentDao.isNumberOccupied(command.number)) {
             throw new DocumentNumberOccupied(command.number);
         }
-        Document document = new Document();
-        document.number = command.number;
-        document.status = DocumentStatus.DRAFT;
-        document.creatingEmployee = command.employeeId;
+        Document document = new Document(command);
         documentDao.save(document);
     }
 
@@ -32,15 +28,7 @@ public class DocumentService {
     @ValidateCommand
     public void update(UpdateDocumentCommand command) {
         Document document = documentDao.find(command.number);
-        if (document.status != DocumentStatus.DRAFT &&
-            document.status != DocumentStatus.WAITING_VERIFICATION &&
-            document.status != DocumentStatus.VERIFIED
-        ) {
-            throw new IllegalDocumentOperationException("document can't be updated in status " + document.status);
-        }
-        document.status = DocumentStatus.DRAFT;
-        document.title = command.title;
-        document.content = command.content;
+        document.update(command);
     }
 
 }

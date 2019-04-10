@@ -1,7 +1,7 @@
 package pl.com.bottega.docflowjee.docflow.rest;
 
 import pl.com.bottega.docflowjee.docflow.application.DocumentNumberOccupied;
-import pl.com.bottega.docflowjee.docflow.application.IllegalDocumentOperationException;
+import pl.com.bottega.docflowjee.docflow.model.IllegalDocumentOperationException;
 import pl.com.bottega.docflowjee.docflow.model.DocumentNotFoundException;
 
 import javax.validation.ConstraintViolationException;

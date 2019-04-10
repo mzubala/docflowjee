@@ -2,8 +2,8 @@ package pl.com.bottega.docflowjee.docflow.rest;
 
 
 import pl.com.bottega.docflowjee.docflow.application.DocumentService;
-import pl.com.bottega.docflowjee.docflow.application.commands.DocumentCommand;
-import pl.com.bottega.docflowjee.docflow.application.commands.UpdateDocumentCommand;
+import pl.com.bottega.docflowjee.docflow.model.commands.DocumentCommand;
+import pl.com.bottega.docflowjee.docflow.model.commands.UpdateDocumentCommand;
 import pl.com.bottega.docflowjee.docflow.rest.dto.DocumentRequest;
 import pl.com.bottega.docflowjee.docflow.rest.dto.PublishDocumentRequest;
 import pl.com.bottega.docflowjee.docflow.rest.dto.RejectDocumentRequest;

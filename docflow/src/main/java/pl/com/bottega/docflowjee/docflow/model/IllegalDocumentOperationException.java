@@ -1,4 +1,4 @@
-package pl.com.bottega.docflowjee.docflow.application;
+package pl.com.bottega.docflowjee.docflow.model;
 
 public class IllegalDocumentOperationException extends RuntimeException {
 

@@ -45,13 +45,4 @@ public abstract class Event {
     public int hashCode() {
         return Objects.hash(aggregateId, createdAt, aggregateVersion);
     }
-
-    @Override
-    public String toString() {
-        return "Event{" +
-            "aggregateId=" + aggregateId +
-            ", createdAt=" + createdAt +
-            ", aggregateVersion=" + aggregateVersion +
-            '}';
-    }
 }

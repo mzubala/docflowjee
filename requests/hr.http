@@ -1,0 +1,14 @@
+GET http://localhost:8080/hr/rest/employees/1
+
+###
+
+POST  http://localhost:8080/hr/rest/employees
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstName": "Jimmi",
+  "lastName": "Choo"
+}
+
+###

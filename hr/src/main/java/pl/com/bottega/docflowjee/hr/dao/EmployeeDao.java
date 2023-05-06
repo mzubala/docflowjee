@@ -1,9 +1,9 @@
 package pl.com.bottega.docflowjee.hr.dao;
 
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
 import pl.com.bottega.docflowjee.hr.model.Employee;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 public class EmployeeDao {
 

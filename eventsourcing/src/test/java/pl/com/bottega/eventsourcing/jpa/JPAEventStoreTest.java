@@ -9,9 +9,9 @@ import pl.com.bottega.eventsourcing.EventPublisher;
 import pl.com.bottega.eventsourcing.testdata.TestAggregateCreatedEvent;
 import pl.com.bottega.eventsourcing.testdata.TestValueChangedEvent;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
